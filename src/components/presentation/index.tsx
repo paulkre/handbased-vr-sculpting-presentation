@@ -27,7 +27,7 @@ export const Presentation: React.FC = ({ children }) => {
   return (
     <Wrapper>
       <ProtocolProvider value={{ setSlideProtocol }}>
-        {React.Children.toArray(children).find((_child, i) => i === currentId)}
+        {React.Children.toArray(children)[currentId]}
       </ProtocolProvider>
     </Wrapper>
   );
