@@ -1,40 +1,34 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
-import { SlideProtocol } from "../components/presentation";
+import {
+  SlideProtocol,
+  SlideProtocolContext
+} from "../components/presentation";
 
-export type AnimationHandlerProps = {
-  animationState?: {
-    step: number;
-    stepCount: number;
-  };
-};
-
-export function useAnimationStep(
-  stepCount: number,
-  setSlideProtocol?: React.Dispatch<
-    React.SetStateAction<SlideProtocol | undefined>
-  >
-) {
+export function useAnimationStep(stepCount: number) {
   const [step, setStep] = useState(0);
+  const setSlideProtocol = useContext(SlideProtocolContext)?.setSlideProtocol;
 
   useEffect(() => {
     if (!setSlideProtocol) return;
 
-    const protocol: SlideProtocol = {};
+    const protocol: SlideProtocol = {
+      preventNext: step < stepCount - 1,
+      preventPrev: step > 0
+    };
 
-    if (step < stepCount - 1)
-      protocol.next = () => {
+    if (protocol.preventNext)
+      protocol.onNext = () => {
         setStep(step + 1);
       };
 
-    if (step > 0)
-      protocol.prev = () => {
+    if (protocol.preventPrev)
+      protocol.onPrev = () => {
         setStep(step - 1);
       };
 
     setSlideProtocol(protocol);
-
-    return () => setSlideProtocol(undefined);
+    return () => setSlideProtocol({});
   }, [setSlideProtocol, step, stepCount]);
 
   return step;

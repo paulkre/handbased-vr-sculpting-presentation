@@ -1,22 +1,21 @@
 import React, { useState } from "react";
 
 import { Wrapper } from "./wrapper";
+import { ProtocolProvider } from "./protocol-provider";
 import { useKeyboardInput } from "./use-keyboard-input";
 import { usePresentationState } from "./use-presentation-state";
 
-export type SlideProtocol = {
-  next?: () => void;
-  prev?: () => void;
-};
+export { SlideProtocolContext } from "./protocol-provider";
 
-export type SlideProps = {
-  setSlideProtocol?: React.Dispatch<
-    React.SetStateAction<SlideProtocol | undefined>
-  >;
+export type SlideProtocol = {
+  preventNext?: boolean;
+  preventPrev?: boolean;
+  onNext?: () => void;
+  onPrev?: () => void;
 };
 
 export const Presentation: React.FC = ({ children }) => {
-  const [slideProtocol, setSlideProtocol] = useState<SlideProtocol>();
+  const [slideProtocol, setSlideProtocol] = useState<SlideProtocol>({});
 
   const [{ currentId }, dispatch] = usePresentationState(
     React.Children.count(children),
@@ -25,14 +24,11 @@ export const Presentation: React.FC = ({ children }) => {
 
   useKeyboardInput(dispatch);
 
-  const slide = React.Children.toArray(children).find(
-    (_child, i) => i === currentId
-  );
-
   return (
     <Wrapper>
-      {React.isValidElement(slide) &&
-        React.cloneElement<SlideProps>(slide, { setSlideProtocol })}
+      <ProtocolProvider value={{ setSlideProtocol }}>
+        {React.Children.toArray(children).find((_child, i) => i === currentId)}
+      </ProtocolProvider>
     </Wrapper>
   );
 };

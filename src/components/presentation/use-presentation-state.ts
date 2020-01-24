@@ -21,31 +21,32 @@ const initialState: State = {
 
 export const usePresentationState = (
   slideCount: number,
-  slideProtocol?: SlideProtocol
+  slideProtocol: SlideProtocol
 ) =>
   useReducer<React.Reducer<State, Action>>(
     useCallback<React.Reducer<State, Action>>(
       (prevState, action) => {
+        const { preventNext, preventPrev, onNext, onPrev } =
+          slideProtocol || {};
+
         switch (action.type) {
           case ActionType.Next:
-            if (slideProtocol?.next) {
-              slideProtocol.next();
-              return prevState;
-            }
-            return {
-              ...prevState,
-              currentId: Math.min(prevState.currentId + 1, slideCount - 1)
-            };
+            if (onNext) onNext();
+            return preventNext
+              ? prevState
+              : {
+                  ...prevState,
+                  currentId: Math.min(prevState.currentId + 1, slideCount - 1)
+                };
 
           case ActionType.Prev:
-            if (slideProtocol?.prev) {
-              slideProtocol.prev();
-              return prevState;
-            }
-            return {
-              ...prevState,
-              currentId: Math.max(prevState.currentId - 1, 0)
-            };
+            if (onPrev) onPrev();
+            return preventPrev
+              ? prevState
+              : {
+                  ...prevState,
+                  currentId: Math.max(prevState.currentId - 1, 0)
+                };
 
           default:
             throw Error();
