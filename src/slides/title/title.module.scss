@@ -1,0 +1,23 @@
+@import "../../variables.scss";
+
+.wrapper {
+  text-align: center;
+}
+
+.label {
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.heading {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.separator {
+  width: 8rem;
+  height: 2px;
+  background: $text-color;
+  margin: 24px auto 16px;
+}
