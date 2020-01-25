@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Div100vh from "react-div-100vh";
 
 import { Presentation } from "../components/presentation";
 import { Title } from "../slides/title";
@@ -15,12 +16,14 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className={styles.wrapper}>
-      {initialized && (
-        <Presentation>
-          <Title />
-        </Presentation>
-      )}
-    </div>
+    <Div100vh>
+      <div className={styles.wrapper}>
+        {initialized && (
+          <Presentation>
+            <Title />
+          </Presentation>
+        )}
+      </div>
+    </Div100vh>
   );
 };

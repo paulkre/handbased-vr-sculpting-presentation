@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import useEventListener from "@use-it/event-listener";
 
-import styles from "./presentation.module.scss";
+import styles from "./presentation.module.css";
 
 const useCursorVisibility = (element: HTMLElement | null) => {
   const [cursorVisibility, setCursorVisibility] = useState(true);

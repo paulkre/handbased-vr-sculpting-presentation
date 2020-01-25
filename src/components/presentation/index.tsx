@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Wrapper } from "./wrapper";
 import { ProtocolProvider } from "./protocol-provider";
 import { useKeyboardInput } from "./use-keyboard-input";
+import { useTouchInput } from "./use-touch-input";
 import { usePresentationState } from "./use-presentation-state";
 
 export { SlideProtocolContext } from "./protocol-provider";
@@ -23,6 +24,7 @@ export const Presentation: React.FC = ({ children }) => {
   );
 
   useKeyboardInput(dispatch);
+  useTouchInput(dispatch);
 
   return (
     <Wrapper>
