@@ -1,6 +1,18 @@
 @import "../../variables.scss";
 
-.wrapper {
+.outerWrapper {
+  width: 100%;
+  height: 100%;
+
+  border: 0.15vw solid darken($text-color-mute, 50);
+  border-right: 0;
+  border-left: 0;
+  padding: 4vh 0;
+
+  transition: 5s ease border-color;
+}
+
+.innerWrapper {
   position: relative;
   width: 100%;
   height: 100%;
@@ -9,8 +21,7 @@
 .label {
   font-size: $font-size-md;
   color: $text-color-mute;
-  font-weight: 300;
-  margin-bottom: 6vh;
+  margin-bottom: 2vh;
 }
 
 @keyframes hue-rotation {
@@ -38,6 +49,8 @@
   left: 0;
   bottom: 0;
 
-  opacity: 0.33;
+  // opacity: 0.5;
   height: 12vh;
+
+  filter: brightness(lightness($text-color-mute));
 }
