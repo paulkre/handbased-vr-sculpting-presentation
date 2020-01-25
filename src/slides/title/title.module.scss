@@ -34,7 +34,7 @@
 }
 
 .heading {
-  font-size: $font-size-xl;
+  font-size: 7.5vw;
   font-weight: 700;
 
   color: orange;
@@ -49,8 +49,6 @@
   left: 0;
   bottom: 0;
 
-  // opacity: 0.5;
-  height: 12vh;
-
+  height: 18vh;
   filter: brightness(lightness($text-color-mute));
 }
