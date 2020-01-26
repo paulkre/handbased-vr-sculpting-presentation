@@ -1,6 +1,6 @@
 $bg-color: #303030;
-$text-color: #f8f8f8;
-$text-color-mute: #c0c0c0;
+$text-color: #ccc;
+$text-color-muted: darken($text-color, 50);
 
 $font-size-sm: 1.5vw;
 $font-size-md: 2vw;

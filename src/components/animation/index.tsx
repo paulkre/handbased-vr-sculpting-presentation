@@ -1,14 +1,16 @@
 import React from "react";
+import cn from "classnames";
 
-import styles from "./fade-in.module.scss";
+import styles from "./animation.module.scss";
 
-export type FadeInProps = {
+export type AnimationProps = {
   duration?: number;
   timingFunction?: string;
 };
 
-export const FadeIn: React.FC<FadeInProps> = ({
+export const Animation: React.FC<AnimationProps & { className: string }> = ({
   children,
+  className,
   duration,
   timingFunction
 }) => {
@@ -18,7 +20,7 @@ export const FadeIn: React.FC<FadeInProps> = ({
   if (timingFunction) style.animationTimingFunction = timingFunction;
 
   return (
-    <div className={styles.wrapper} style={style}>
+    <div className={cn(styles.wrapper, className)} style={style}>
       {children}
     </div>
   );
