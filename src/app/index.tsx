@@ -3,6 +3,7 @@ import Div100vh from "react-div-100vh";
 
 import { Presentation } from "../components/presentation";
 import { Title } from "../slides/title";
+import { Motivation } from "../slides/motivation";
 import { SliderVideo } from "../slides/slider-video";
 
 import styles from "./app.module.scss";
@@ -12,6 +13,7 @@ export const App: React.FC = () => (
     <div className={styles.wrapper}>
       <Presentation>
         <Title />
+        <Motivation />
         <SliderVideo />
       </Presentation>
     </div>

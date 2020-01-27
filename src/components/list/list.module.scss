@@ -1,0 +1,8 @@
+@import "../../variables.scss";
+
+.list {
+  font-size: $font-size-lg;
+  & > li:not(:last-child) {
+    margin-bottom: 3vh;
+  }
+}
