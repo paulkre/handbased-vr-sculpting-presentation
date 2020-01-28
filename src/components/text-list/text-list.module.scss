@@ -1,0 +1,21 @@
+@import "../../variables.scss";
+
+.list {
+  margin: 0;
+  padding: 0;
+
+  padding-left: 3vw;
+
+  font-size: $font-size-lg;
+  & > li:not(:last-child) {
+    margin-bottom: 4vh;
+  }
+
+  & > li > .list {
+    margin-top: 3vh;
+
+    & > li:not(:last-child) {
+      margin-bottom: 1vh;
+    }
+  }
+}

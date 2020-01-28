@@ -1,13 +1,13 @@
 import React from "react";
 
-import styles from "./list.module.scss";
+import styles from "./text-list.module.scss";
 
-type ListProps = {
+type TextListProps = {
   ordered?: boolean;
   wrapItems?: boolean;
 };
 
-export const List: React.FC<ListProps> = ({ children, ordered }) =>
+export const TextList: React.FC<TextListProps> = ({ children, ordered }) =>
   ordered ? (
     <ol className={styles.list}>{children}</ol>
   ) : (
