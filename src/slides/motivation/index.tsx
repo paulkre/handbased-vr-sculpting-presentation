@@ -3,8 +3,8 @@ import React from "react";
 import { Frame } from "../../components/frame";
 import { Chapter } from "../../components/chapter";
 import { List } from "../../components/list";
-import { InteractiveList } from "../../components/interaction/interactive-list";
-import { InteractiveSwitch } from "../../components/interaction/interactive-switch";
+import { InteractiveList } from "../../components/interactive-list";
+import { InteractiveSwitch } from "../../components/interactive-switch";
 import { fadeInClassName } from "../../components/animation/fade-in";
 
 export const Motivation: React.FC = () => {

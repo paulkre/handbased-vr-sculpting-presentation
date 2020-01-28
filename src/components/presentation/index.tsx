@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
+import { InteractionStepManager } from "./interaction-step-manager";
+
 import { Wrapper } from "./wrapper";
 import { PresentationControllerProvider } from "./presentation-controller-provider";
 import { useKeyboardInput } from "./use-keyboard-input";
 import { useTouchInput } from "./use-touch-input";
-import { usePresentationState } from "./use-presentation-state";
 
 export type ActionProtocol = {
   onNext?: () => void;
@@ -14,18 +15,23 @@ export type ActionProtocol = {
 export const Presentation: React.FC = ({ children }) => {
   const [actionProtocol, setActionProtocol] = useState<ActionProtocol>({});
 
-  const [{ slideId }, dispatch] = usePresentationState(
-    React.Children.count(children),
-    actionProtocol
-  );
+  const [slideId, setSlideId] = useState(0);
 
-  useKeyboardInput(dispatch);
-  useTouchInput(dispatch);
+  const slideCount = React.Children.count(children);
+
+  useKeyboardInput(actionProtocol);
+  useTouchInput(actionProtocol);
 
   return (
     <Wrapper>
       <PresentationControllerProvider setActionProtocol={setActionProtocol}>
-        {React.Children.toArray(children)[slideId]}
+        <InteractionStepManager
+          step={slideId}
+          setStep={setSlideId}
+          stepCount={slideCount}
+        >
+          {React.Children.toArray(children)[slideId]}
+        </InteractionStepManager>
       </PresentationControllerProvider>
     </Wrapper>
   );

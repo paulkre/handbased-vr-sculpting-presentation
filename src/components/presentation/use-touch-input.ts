@@ -1,11 +1,11 @@
 import { useState, useCallback } from "react";
 import useEventListener from "@use-it/event-listener";
 
-import { ActionType, Action } from "./use-presentation-state";
+import { ActionProtocol } from ".";
 
 const swipeLengthIsValid = (a: number, b: number) => Math.abs(b - a) > 64;
 
-export function useTouchInput(dispatch: React.Dispatch<Action>) {
+export function useTouchInput(actionProtocol: ActionProtocol) {
   const [lastTouchX, setLastTouchX] = useState<number>(NaN);
 
   const startHandler = useCallback<React.EventHandler<React.TouchEvent>>(
@@ -26,10 +26,11 @@ export function useTouchInput(dispatch: React.Dispatch<Action>) {
 
       if (!swipeLengthIsValid(touchX, lastTouchX)) return;
 
-      if (touchX < lastTouchX) dispatch({ type: ActionType.Next });
-      else if (touchX > lastTouchX) dispatch({ type: ActionType.Prev });
+      if (touchX < lastTouchX && actionProtocol.onNext) actionProtocol.onNext();
+      else if (touchX > lastTouchX && actionProtocol.onPrev)
+        actionProtocol.onPrev();
     },
-    [dispatch, lastTouchX]
+    [actionProtocol, lastTouchX]
   );
 
   useEventListener("touchstart", startHandler);

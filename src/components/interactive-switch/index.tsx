@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { InteractionProvider } from "./interaction-provider";
+import { InteractionStepManager } from "../presentation/interaction-step-manager";
 
 type InteractiveSwitchProps = {
   wrapElement?: React.ReactElement;
@@ -20,8 +20,12 @@ export const InteractiveSwitch: React.FC<InteractiveSwitchProps> = ({
     currentChild = React.cloneElement(wrapElement, { children: currentChild });
 
   return (
-    <InteractionProvider step={step} setStep={setStep} stepCount={childCount}>
+    <InteractionStepManager
+      step={step}
+      setStep={setStep}
+      stepCount={childCount}
+    >
       {currentChild}
-    </InteractionProvider>
+    </InteractionStepManager>
   );
 };

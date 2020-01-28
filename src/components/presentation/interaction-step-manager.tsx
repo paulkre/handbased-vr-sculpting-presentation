@@ -4,15 +4,15 @@ import { ActionProtocol } from "../presentation";
 import {
   PresentationControllerContext,
   PresentationControllerProvider
-} from "../presentation/presentation-controller-provider";
+} from "./presentation-controller-provider";
 
-type InteractionProviderProps = {
+type InteractionStepManagerProps = {
   stepCount: number;
   step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export const InteractionProvider: React.FC<InteractionProviderProps> = ({
+export const InteractionStepManager: React.FC<InteractionStepManagerProps> = ({
   children,
   step,
   setStep,
