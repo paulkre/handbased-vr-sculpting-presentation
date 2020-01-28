@@ -7,7 +7,7 @@ import {
   SetProtocolAction
 } from "./use-presentation-state";
 
-type PresentationController = {
+export type PresentationController = {
   setActionProtocol: (protocol: ActionProtocol) => void;
 };
 
