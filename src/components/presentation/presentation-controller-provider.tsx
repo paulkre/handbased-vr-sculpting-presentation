@@ -3,12 +3,12 @@ import React, { useCallback } from "react";
 import {
   ActionType,
   Action,
-  QueueItemAction,
-  QueueCallback
+  ActionProtocol,
+  SetProtocolAction
 } from "./use-presentation-state";
 
 type PresentationController = {
-  registerQueueItem: (stepCount: number, callback: QueueCallback) => void;
+  setActionProtocol: (protocol: ActionProtocol) => void;
 };
 
 type PresentationControllerProviderProps = {
@@ -24,12 +24,12 @@ export const PresentationControllerProvider: React.FC<PresentationControllerProv
   dispatch
 }) => {
   const value: PresentationController = {
-    registerQueueItem: useCallback(
-      (stepCount, callback) => {
+    setActionProtocol: useCallback(
+      protocol => {
         dispatch({
-          type: ActionType.RegisterQueueItem,
-          queueItem: { stepCount, callback }
-        } as QueueItemAction);
+          type: ActionType.SetActionProtocol,
+          protocol
+        } as SetProtocolAction);
       },
       [dispatch]
     )
