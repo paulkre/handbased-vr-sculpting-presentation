@@ -1,48 +1,33 @@
 import { useCallback, useReducer } from "react";
 
-export type ActionProtocol = {
-  onNext?: () => void;
-  onPrev?: () => void;
-};
+import { ActionProtocol } from ".";
 
 export enum ActionType {
   Next,
-  Prev,
-  SetActionProtocol
+  Prev
 }
 
 export type Action = {
   type: ActionType;
 };
 
-export interface SetProtocolAction extends Action {
-  protocol: ActionProtocol;
-}
-
 type State = {
   slideId: number;
-  actionProtocol: ActionProtocol;
 };
 
-const initialState: State = {
-  slideId: 0,
-  actionProtocol: {}
-};
+const initialState: State = { slideId: 0 };
 
-export const usePresentationState = (slideCount: number) =>
+export const usePresentationState = (
+  slideCount: number,
+  actionProtocol: ActionProtocol
+) =>
   useReducer<React.Reducer<State, Action>>(
     useCallback<React.Reducer<State, Action>>(
       (prevState, action) => {
         switch (action.type) {
-          case ActionType.SetActionProtocol:
-            return {
-              ...prevState,
-              actionProtocol: (action as SetProtocolAction).protocol
-            };
-
           case ActionType.Next:
-            if (prevState.actionProtocol.onNext) {
-              prevState.actionProtocol.onNext();
+            if (actionProtocol.onNext) {
+              actionProtocol.onNext();
               return prevState;
             }
 
@@ -55,8 +40,8 @@ export const usePresentationState = (slideCount: number) =>
             return prevState;
 
           case ActionType.Prev:
-            if (prevState.actionProtocol.onPrev) {
-              prevState.actionProtocol.onPrev();
+            if (actionProtocol.onPrev) {
+              actionProtocol.onPrev();
               return prevState;
             }
 
@@ -72,7 +57,7 @@ export const usePresentationState = (slideCount: number) =>
             throw Error();
         }
       },
-      [slideCount]
+      [slideCount, actionProtocol]
     ),
     initialState
   );

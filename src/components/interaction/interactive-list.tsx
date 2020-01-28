@@ -1,8 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { PresentationControllerContext } from "../presentation/presentation-controller-provider";
-
-import { useInteractionStep } from "./use-interaction-step";
+import { InteractionProvider } from "./interaction-provider";
 
 type InteractiveListProps = {
   wrapElement?: React.ReactElement;
@@ -12,14 +10,11 @@ export const InteractiveList: React.FC<InteractiveListProps> = ({
   children,
   wrapElement
 }) => {
-  const [progressId, controller] = useInteractionStep(
-    React.Children.count(children)
-  );
+  const [step, setStep] = useState(0);
 
-  let filteredChildren = React.Children.toArray(children).slice(
-    0,
-    progressId + 1
-  );
+  const childCount = React.Children.count(children);
+
+  let filteredChildren = React.Children.toArray(children).slice(0, step + 1);
 
   if (wrapElement)
     filteredChildren = filteredChildren.map((child, i) =>
@@ -27,8 +22,8 @@ export const InteractiveList: React.FC<InteractiveListProps> = ({
     );
 
   return (
-    <PresentationControllerContext.Provider value={controller}>
+    <InteractionProvider step={step} setStep={setStep} stepCount={childCount}>
       {filteredChildren}
-    </PresentationControllerContext.Provider>
+    </InteractionProvider>
   );
 };
