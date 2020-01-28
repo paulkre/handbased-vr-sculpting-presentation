@@ -19,7 +19,7 @@ export const Presentation: React.FC = ({ children }) => {
 
   const slideCount = React.Children.count(children);
 
-  useKeyboardInput(actionProtocol);
+  useKeyboardInput(actionProtocol, slideId, setSlideId, slideCount);
   useTouchInput(actionProtocol);
 
   return (
