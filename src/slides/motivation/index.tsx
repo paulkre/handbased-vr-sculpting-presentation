@@ -2,7 +2,7 @@ import React from "react";
 
 import { Frame } from "../../components/frame";
 import { Chapter } from "../../components/chapter";
-import { TextList as List } from "../../components/text-list";
+import { TextList as List, Item as Li } from "../../components/text-list";
 import { InteractiveList } from "../../components/interactive-list";
 import { InteractiveSwitch } from "../../components/interactive-switch";
 import { fadeInClassName } from "../../components/animation/fade-in";
@@ -10,10 +10,6 @@ import { ImgGallery } from "../../components/img-gallery";
 
 import tiltBrushImgUrl from "./tiltbrush.jpg";
 import mediumImgUrl from "./medium.jpg";
-
-const Li: React.FC = ({ children }) => (
-  <li className={fadeInClassName}>{children}</li>
-);
 
 export const Motivation: React.FC = () => (
   <Frame>

@@ -1,5 +1,7 @@
 import React from "react";
 
+import { fadeInClassName } from "../animation/fade-in";
+
 import styles from "./text-list.module.scss";
 
 type TextListProps = {
@@ -13,3 +15,7 @@ export const TextList: React.FC<TextListProps> = ({ children, ordered }) =>
   ) : (
     <ul className={styles.list}>{children}</ul>
   );
+
+export const Item: React.FC = ({ children }) => (
+  <li className={fadeInClassName}>{children}</li>
+);
