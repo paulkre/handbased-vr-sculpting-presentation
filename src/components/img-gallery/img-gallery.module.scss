@@ -1,0 +1,25 @@
+@import "../../variables.scss";
+
+.wrapper {
+  width: 100%;
+
+  display: -ms-grid;
+  -ms-grid-template-columns: 1fr 1fr;
+  -ms-grid-gap: 2vw;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3vw;
+}
+
+.column {
+  & > img {
+    width: 100%;
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.15);
+  }
+}
+
+.caption {
+  padding-top: 0.5vh;
+  font-size: $font-size-sm;
+}

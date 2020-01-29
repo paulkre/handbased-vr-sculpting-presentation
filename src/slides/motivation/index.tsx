@@ -6,6 +6,10 @@ import { TextList as List } from "../../components/text-list";
 import { InteractiveList } from "../../components/interactive-list";
 import { InteractiveSwitch } from "../../components/interactive-switch";
 import { fadeInClassName } from "../../components/animation/fade-in";
+import { ImgGallery } from "../../components/img-gallery";
+
+import tiltBrushImgUrl from "./tiltbrush.jpg";
+import mediumImgUrl from "./medium.jpg";
 
 const Li: React.FC = ({ children }) => (
   <li className={fadeInClassName}>{children}</li>
@@ -27,30 +31,63 @@ export const Motivation: React.FC = () => (
               Interaktionskonzept ist suboptimal
               <List>
                 <Li>Zu wenig Tasten</Li>
-                <Li>Keine Texteingabe</Li>
-                <Li>Nicht so präzise wie eine Maus</Li>
+                <Li>
+                  Unpräziser und anstrengender als die Verwendung einer Maus
+                </Li>
+                <Li>Texteingabe ist aufwändig</Li>
               </List>
             </Li>
           </InteractiveList>
           <InteractiveList>
             <Li>
-              Wahrscheinlich gibt es noch andere Interaktionskonzepte, die sich
-              in virtuellen Umgebungen besser für die Steuerung
-              leistungsorientierter Anwendungen eignen
+              Womöglich gibt es noch effektivere Interaktionskonzepte für die
+              Bedienung von leistungsorientierten Anwendungen in virtuellen
+              Umgebungen
             </Li>
             <Li>
-              Handbasierte (bzw. Fingerbasierte) Interaktion ist eine
+              Handbasierte (bzw. Fingerbasierte) Interaktion erweist sich als
               vielversprechende Alternative
-            </Li>
-            <Li>
-              Im kreativen Bereich kann VR erfolgreich für Produktivität genutzt
-              werden
               <List>
                 <Li>
-                  <strong>Beispiele</strong>: TiltBrush, Medium
+                  Natürliche intuitive Interaktion, da physische Gerät nicht
+                  benötigt werden
+                </Li>
+                <Li>Viele mögliche Signale mit Kombinationen aus Handgesten</Li>
+                <Li>
+                  Unerforschte handbasierte Interaktionskonzepte erlauben
+                  womöglich eine effiziente Texteingabe
                 </Li>
               </List>
             </Li>
+          </InteractiveList>
+          <InteractiveList>
+            <Li>
+              Viele leistungsorientierte Anwendungen funktionieren besser in
+              desktopbasierten Umgebungen
+            </Li>
+            <Li>
+              Allerdings gibt es im kreativen Bereich viele professionelle
+              Nutzer von VR-Anwendungen
+            </Li>
+            <ImgGallery
+              className={fadeInClassName}
+              columns={[
+                {
+                  caption: "Tilt Brush",
+                  imgProps: {
+                    src: tiltBrushImgUrl,
+                    alt: "Tilt Brush Demo"
+                  }
+                },
+                {
+                  caption: "Medium",
+                  imgProps: {
+                    src: mediumImgUrl,
+                    alt: "Medium Demo"
+                  }
+                }
+              ]}
+            />
           </InteractiveList>
         </InteractiveSwitch>
       </List>
