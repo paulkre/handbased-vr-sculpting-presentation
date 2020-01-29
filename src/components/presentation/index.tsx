@@ -12,10 +12,17 @@ export type ActionProtocol = {
   onPrev?: () => void;
 };
 
-export const Presentation: React.FC = ({ children }) => {
+type PresentationProps = {
+  initialStep?: number;
+};
+
+export const Presentation: React.FC<PresentationProps> = ({
+  children,
+  initialStep
+}) => {
   const [actionProtocol, setActionProtocol] = useState<ActionProtocol>({});
 
-  const [slideId, setSlideId] = useState(0);
+  const [slideId, setSlideId] = useState(initialStep || 0);
 
   const slideCount = React.Children.count(children);
 
