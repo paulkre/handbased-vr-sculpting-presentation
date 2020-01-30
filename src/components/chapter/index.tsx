@@ -9,6 +9,6 @@ type ChapterProps = {
 export const Chapter: React.FC<ChapterProps> = ({ children, title }) => (
   <div className={styles.wrapper}>
     <div className={styles.heading}>{title}</div>
-    {children}
+    <div>{children}</div>
   </div>
 );

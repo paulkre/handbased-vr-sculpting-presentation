@@ -3,10 +3,16 @@
 .wrapper {
   width: 100%;
   height: 100%;
+
+  display: -ms-grid;
+  -ms-grid-rows: min-content 1fr;
+
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  grid-gap: 4vh;
 }
 
 .heading {
   font-weight: 700;
   font-size: $font-size-xl;
-  margin-bottom: 4vh;
 }
