@@ -1,8 +1,8 @@
 import React from "react";
 
-import styles from "./visualization.module.scss";
+import { Size } from ".";
 
-export type Size = { width: number; height: number };
+import styles from "./visualization.module.scss";
 
 type CanvasProps = {
   setRenderingContext?: React.Dispatch<

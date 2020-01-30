@@ -1,6 +1,8 @@
 import React from "react";
 
-import { Canvas, Size } from "./canvas";
+import { Canvas } from "./canvas";
+
+export type Size = { width: number; height: number };
 
 export type RenderProtocol = (
   ctx: CanvasRenderingContext2D,
