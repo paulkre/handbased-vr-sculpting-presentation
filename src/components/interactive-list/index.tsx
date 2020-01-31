@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { InteractionStepManager } from "../presentation/interaction-step-manager";
+import { InteractionStepSwitch } from "../presentation/interaction-step-switch";
 
 type InteractiveListProps = {
   wrapElement?: React.ReactElement;
@@ -22,12 +22,8 @@ export const InteractiveList: React.FC<InteractiveListProps> = ({
     );
 
   return (
-    <InteractionStepManager
-      step={step}
-      setStep={setStep}
-      stepCount={childCount}
-    >
+    <InteractionStepSwitch step={step} setStep={setStep} stepCount={childCount}>
       {filteredChildren}
-    </InteractionStepManager>
+    </InteractionStepSwitch>
   );
 };

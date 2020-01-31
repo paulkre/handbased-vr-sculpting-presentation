@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 
-import { InteractionStepManager } from "../presentation/interaction-step-manager";
+import { InteractionStepSwitch } from "../presentation/interaction-step-switch";
 
 export const InteractiveSwitch: React.FC = ({ children }) => {
   const [step, setStep] = useState(0);
   const childCount = React.Children.count(children);
 
   return (
-    <InteractionStepManager
-      step={step}
-      setStep={setStep}
-      stepCount={childCount}
-    >
+    <InteractionStepSwitch step={step} setStep={setStep} stepCount={childCount}>
       {React.Children.toArray(children)[step]}
-    </InteractionStepManager>
+    </InteractionStepSwitch>
   );
 };

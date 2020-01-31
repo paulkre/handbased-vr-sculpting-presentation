@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { InteractionStepManager } from "./interaction-step-manager";
+import { InteractionStepSwitch } from "./interaction-step-switch";
 
 import { Wrapper } from "./wrapper";
 import { PresentationControllerProvider } from "./presentation-controller-provider";
@@ -32,13 +32,13 @@ export const Presentation: React.FC<PresentationProps> = ({
   return (
     <Wrapper>
       <PresentationControllerProvider setActionProtocol={setActionProtocol}>
-        <InteractionStepManager
+        <InteractionStepSwitch
           step={slideId}
           setStep={setSlideId}
           stepCount={slideCount}
         >
           {React.Children.toArray(children)[slideId]}
-        </InteractionStepManager>
+        </InteractionStepSwitch>
       </PresentationControllerProvider>
     </Wrapper>
   );

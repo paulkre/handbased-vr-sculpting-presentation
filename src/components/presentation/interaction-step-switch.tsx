@@ -6,13 +6,13 @@ import {
   PresentationControllerProvider
 } from "./presentation-controller-provider";
 
-type InteractionStepManagerProps = {
+type InteractionStepSwitchProps = {
   stepCount: number;
   step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export const InteractionStepManager: React.FC<InteractionStepManagerProps> = ({
+export const InteractionStepSwitch: React.FC<InteractionStepSwitchProps> = ({
   children,
   step,
   setStep,
