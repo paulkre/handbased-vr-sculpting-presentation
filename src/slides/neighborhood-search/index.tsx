@@ -5,19 +5,19 @@ import { Chapter } from "../../components/chapter";
 // import { InteractiveSwitch } from "../../components/interactive-switch";
 // import { InteractiveList } from "../../components/interactive-list";
 import { Visualization } from "../../components/visualization";
-import { Renderer, RendererType } from "./renderer";
+import { Sketch, SketchType } from "./sketch";
 
 export const NeighborhoodSearch: React.FC = () => {
-  const [renderer, setRenderer] = React.useState<RendererType>();
+  const [sketch, setSketch] = React.useState<SketchType>();
 
   React.useEffect(() => {
-    setRenderer(Renderer());
+    setSketch(Sketch());
   }, []);
 
   return (
     <Frame>
       <Chapter title="Nachbarschaftssuche">
-        {renderer && <Visualization render={renderer.render} />}
+        {sketch && <Visualization render={sketch.render} />}
       </Chapter>
     </Frame>
   );

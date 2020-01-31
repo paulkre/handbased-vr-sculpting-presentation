@@ -2,19 +2,30 @@ import { RenderProtocol } from "../../../components/visualization";
 
 import { CircleShape } from "./circle-shape";
 import { Brush } from "./brush";
-import { Point } from "./transform";
+import { Point } from "./point";
 
-export type RendererType = { render: RenderProtocol };
+export type SketchType = { render: RenderProtocol };
 
-export const Renderer: () => RendererType = () => {
+const { PI, sin, cos } = Math;
+
+const orbitRadius = 0.35;
+const orbitDuration = 10;
+
+export const Sketch: () => SketchType = () => {
   const shape = CircleShape(0.33);
-  shape.transform.setPosition(Point(0.25, 0));
+  // shape.transform.setPosition(Point(0.33, 0));
+  shape.setShowNormals(true);
 
   const brush = Brush(0.2);
-  brush.transform.setPosition(Point(-0.2, 0));
+  brush.addShape(shape);
 
   return {
     render(ctx, { width, height }, time) {
+      const t = (2 * PI * (time / 1000)) / orbitDuration;
+      brush.transform.setPosition(
+        Point(sin(t) * orbitRadius, cos(t) * orbitRadius)
+      );
+
       ctx.save();
 
       ctx.clearRect(0, 0, width, height);
