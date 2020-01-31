@@ -3,35 +3,45 @@ import { SceneObjectType } from "./scene-object";
 
 export * from "./point";
 
-type RenderProps = {
-  ctx: CanvasRenderingContext2D;
+export type UpdateProps = {
   size: Size;
   time: number;
   delta: number;
   animationStep: number;
 };
 
-export type RenderBehaviour = (props: RenderProps) => void;
+export type RenderProps = UpdateProps & { ctx: CanvasRenderingContext2D };
 
 export type SceneType = {
-  render: RenderBehaviour;
+  render: (props: RenderProps) => void;
   animationStepCount: number;
+  onInteraction: (step: number) => void;
+};
+
+export type SceneControllerProps = {
+  addSceneObject: (object: SceneObjectType) => void;
 };
 
 export type SceneControllerType = {
-  objects: SceneObjectType[];
-  initialize?: () => void;
-  update?: RenderBehaviour;
+  update?: (props: UpdateProps) => void;
   animationStepCount?: number;
+  onInteraction?: (step: number) => void;
 };
 
-export const Scene: (props: SceneControllerType) => SceneType = ({
-  objects,
-  initialize,
-  update,
-  animationStepCount
-}) => {
-  if (initialize) initialize();
+export type SceneControllerStrategy = (
+  props: SceneControllerProps
+) => SceneControllerType;
+
+export const Scene: (
+  Controller: SceneControllerStrategy
+) => SceneType = Controller => {
+  const objects: SceneObjectType[] = [];
+
+  const { update, animationStepCount, onInteraction } = Controller({
+    addSceneObject(object) {
+      objects.push(object);
+    }
+  });
 
   return {
     render(props) {
@@ -55,6 +65,9 @@ export const Scene: (props: SceneControllerType) => SceneType = ({
       ctx.restore();
     },
 
-    animationStepCount: animationStepCount || 1
+    animationStepCount: animationStepCount || 1,
+    onInteraction(step) {
+      if (onInteraction) onInteraction(step);
+    }
   };
 };

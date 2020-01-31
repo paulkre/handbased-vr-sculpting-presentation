@@ -3,9 +3,7 @@ import React from "react";
 import { useInteractionStep } from "../presentation/use-interaction-step";
 
 import { Canvas, Size } from "./canvas";
-import { Scene, SceneType, SceneControllerType } from "./scene";
-
-export type SceneControllerStrategy = () => SceneControllerType;
+import { Scene, SceneType, SceneControllerStrategy } from "./scene";
 
 type VisualizationProps = {
   SceneController: SceneControllerStrategy;
@@ -17,7 +15,7 @@ const useScene: (
   const [scene, setScene] = React.useState<SceneType>();
 
   React.useEffect(() => {
-    const scene = Scene(SceneController());
+    const scene = Scene(SceneController);
     setScene(scene);
   }, [SceneController]);
 
@@ -32,6 +30,11 @@ const useAnimationStep: (scene?: SceneType) => number = scene => {
     if (!scene) return;
     setStepCount(scene.animationStepCount);
   }, [scene]);
+
+  React.useEffect(() => {
+    if (!scene) return;
+    scene.onInteraction(step);
+  }, [scene, step]);
 
   return step;
 };

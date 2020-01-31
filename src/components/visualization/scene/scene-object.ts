@@ -1,21 +1,35 @@
 import { Transform, TransformType } from "./transform";
 
-import { RenderBehaviour } from ".";
+import { UpdateProps, RenderProps } from ".";
+import { PointType } from "./point";
+
+type PointFilter = (point: PointType) => PointType;
 
 export type SceneObjectType = {
   transform: TransformType;
-  render: RenderBehaviour;
+  render: (props: RenderProps) => void;
+  setEnabled(value: boolean): void;
 };
 
-export const SceneObject: (
-  render: RenderBehaviour
-) => SceneObjectType = render => {
+export type SceneObjectProps = {
+  render: (props: RenderProps) => void;
+  update?: (props: UpdateProps) => void;
+};
+
+export const SceneObject: (props: SceneObjectProps) => SceneObjectType = ({
+  update,
+  render
+}) => {
+  let enabled = true;
   const transform = Transform();
 
   return {
     transform,
 
     render(props) {
+      if (!enabled) return;
+      if (update) update(props);
+
       const { ctx } = props;
 
       ctx.save();
@@ -26,6 +40,10 @@ export const SceneObject: (
       render(props);
 
       ctx.restore();
+    },
+
+    setEnabled(value) {
+      enabled = value;
     }
   };
 };
