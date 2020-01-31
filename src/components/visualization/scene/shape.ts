@@ -54,7 +54,7 @@ export const Shape: (points: PointType[], normals: PointType[]) => ShapeType = (
     ctx.stroke();
   }
 
-  const sceneObj = SceneObject(ctx => {
+  const sceneObj = SceneObject(({ ctx }) => {
     renderHull(ctx);
     if (showNormals) renderNormals(ctx);
     renderPoints(ctx);

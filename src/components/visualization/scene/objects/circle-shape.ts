@@ -1,5 +1,5 @@
-import { Point, PointType } from "./point";
-import { Shape, ShapeType } from "./shape";
+import { Point, PointType } from "../point";
+import { Shape, ShapeType } from "../shape";
 
 const { PI, sin, cos } = Math;
 

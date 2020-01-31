@@ -1,6 +1,6 @@
 import { Transform, TransformType } from "./transform";
 
-type RenderBehaviour = (ctx: CanvasRenderingContext2D) => void;
+import { RenderBehaviour } from "..";
 
 export type SceneObjectType = {
   transform: TransformType;
@@ -15,13 +15,15 @@ export const SceneObject: (
   return {
     transform,
 
-    render(ctx) {
+    render(props) {
+      const { ctx } = props;
+
       ctx.save();
 
       const { x, y } = transform.position();
       ctx.translate(x, y);
 
-      render(ctx);
+      render(props);
 
       ctx.restore();
     }

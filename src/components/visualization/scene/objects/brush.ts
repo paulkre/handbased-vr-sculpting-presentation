@@ -1,5 +1,5 @@
-import { SceneObject, SceneObjectType } from "./scene-object";
-import { ShapeType } from "./shape";
+import { SceneObject, SceneObjectType } from "../scene-object";
+import { ShapeType } from "../shape";
 
 const crossHSize = 0.015;
 
@@ -11,7 +11,7 @@ export const Brush: (radius: number) => BrushType = radius => {
   const radiusSq = radius * radius;
   const shapes: ShapeType[] = [];
 
-  const sceneObj = SceneObject(ctx => {
+  const sceneObj = SceneObject(({ ctx }) => {
     updateShapes();
 
     ctx.strokeStyle = "cyan";
