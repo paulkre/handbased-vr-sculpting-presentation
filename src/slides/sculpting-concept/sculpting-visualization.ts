@@ -19,11 +19,13 @@ export const SculptingVisualization: SceneControllerStrategy = () => {
 
   return {
     objects: [shape, brush],
-    update({ time }) {
+    update({ time, animationStep }) {
       const t = (2 * PI * (time / 1000)) / orbitDuration;
       brush.transform.setPosition(
         Point(sin(t) * orbitRadius, cos(t) * orbitRadius)
       );
-    }
+      shape.setShowNormals(animationStep > 0);
+    },
+    animationStepCount: 2
   };
 };

@@ -1,22 +1,35 @@
+import { Size } from "../canvas";
 import { SceneObjectType } from "./scene-object";
-import { RenderBehaviour } from "..";
 
 export * from "./point";
 
+type RenderProps = {
+  ctx: CanvasRenderingContext2D;
+  size: Size;
+  time: number;
+  delta: number;
+  animationStep: number;
+};
+
+export type RenderBehaviour = (props: RenderProps) => void;
+
 export type SceneType = {
   render: RenderBehaviour;
+  animationStepCount: number;
 };
 
 export type SceneControllerType = {
   objects: SceneObjectType[];
   initialize?: () => void;
   update?: RenderBehaviour;
+  animationStepCount?: number;
 };
 
 export const Scene: (props: SceneControllerType) => SceneType = ({
   objects,
   initialize,
-  update
+  update,
+  animationStepCount
 }) => {
   if (initialize) initialize();
 
@@ -40,6 +53,8 @@ export const Scene: (props: SceneControllerType) => SceneType = ({
       objects.forEach(obj => obj.render(props));
 
       ctx.restore();
-    }
+    },
+
+    animationStepCount: animationStepCount || 1
   };
 };

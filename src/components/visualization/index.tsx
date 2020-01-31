@@ -1,18 +1,9 @@
 import React from "react";
 
-import { Canvas } from "./canvas";
+import { useInteractionStep } from "../presentation/use-interaction-step";
+
+import { Canvas, Size } from "./canvas";
 import { Scene, SceneType, SceneControllerType } from "./scene";
-
-export type Size = { width: number; height: number };
-
-type RenderProps = {
-  ctx: CanvasRenderingContext2D;
-  size: Size;
-  time: number;
-  delta: number;
-};
-
-export type RenderBehaviour = (props: RenderProps) => void;
 
 export type SceneControllerStrategy = () => SceneControllerType;
 
@@ -33,6 +24,18 @@ const useScene: (
   return scene;
 };
 
+const useAnimationStep: (scene?: SceneType) => number = scene => {
+  const [stepCount, setStepCount] = React.useState(1);
+  const step = useInteractionStep(stepCount);
+
+  React.useEffect(() => {
+    if (!scene) return;
+    setStepCount(scene.animationStepCount);
+  }, [scene]);
+
+  return step;
+};
+
 export const Visualization: React.FC<VisualizationProps> = ({
   SceneController
 }) => {
@@ -40,6 +43,7 @@ export const Visualization: React.FC<VisualizationProps> = ({
   const lastTimeRef = React.useRef(performance.now());
   const runTimeRef = React.useRef(0);
   const scene = useScene(SceneController);
+  const animationStep = useAnimationStep(scene);
 
   const [
     canvasCtx,
@@ -60,13 +64,14 @@ export const Visualization: React.FC<VisualizationProps> = ({
           ctx: canvasCtx,
           size: canvasSize,
           time: runTimeRef.current,
-          delta: deltaTime
+          delta: deltaTime,
+          animationStep
         });
 
       lastTimeRef.current = time;
       frameRequestRef.current = requestAnimationFrame(render);
     },
-    [canvasCtx, canvasSize, scene]
+    [canvasCtx, canvasSize, animationStep, scene]
   );
 
   React.useEffect(() => {

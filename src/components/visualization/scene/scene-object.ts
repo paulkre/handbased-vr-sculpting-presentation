@@ -1,6 +1,6 @@
 import { Transform, TransformType } from "./transform";
 
-import { RenderBehaviour } from "..";
+import { RenderBehaviour } from ".";
 
 export type SceneObjectType = {
   transform: TransformType;
