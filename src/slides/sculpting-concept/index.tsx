@@ -5,9 +5,9 @@ import { Chapter } from "../../components/chapter";
 import { Visualization } from "../../components/visualization";
 import { SculptingVisualization } from "./sculpting-visualization";
 
-export const NeighborhoodSearch: React.FC = () => (
+export const SculptingConcept: React.FC = () => (
   <Frame>
-    <Chapter title="Nachbarschaftssuche">
+    <Chapter title="Sculpting Konzept">
       <Visualization SceneController={SculptingVisualization} />
     </Chapter>
   </Frame>

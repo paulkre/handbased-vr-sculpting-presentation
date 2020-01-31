@@ -5,7 +5,7 @@ import { Presentation } from "../components/presentation";
 import { Title } from "../slides/title";
 import { Motivation } from "../slides/motivation";
 import { RelatedWork } from "../slides/related-work";
-import { NeighborhoodSearch } from "../slides/neighborhood-search";
+import { SculptingConcept } from "../slides/sculpting-concept";
 import { SliderVideo } from "../slides/slider-video";
 
 import styles from "./app.module.scss";
@@ -17,7 +17,7 @@ export const App: React.FC = () => (
         <Title />
         <Motivation />
         <RelatedWork />
-        <NeighborhoodSearch />
+        <SculptingConcept />
         <SliderVideo />
       </Presentation>
     </div>
