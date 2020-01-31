@@ -1,15 +1,15 @@
 import { SceneControllerStrategy } from "../../components/visualization/scene";
 
 import { CircleShape } from "../../components/visualization/scene/objects/circle-shape";
-import { Brush } from "../../components/visualization/scene/objects/brush";
+import { OrbitingBrush } from "../../components/visualization/scene/objects/orbiting-brush";
 
 export const SculptingVisualization: SceneControllerStrategy = ({
   addSceneObject
 }) => {
-  const shape = CircleShape(0.33);
+  const shape = new CircleShape(0.33);
 
-  const brush = Brush(0.2);
-  brush.addShape(shape);
+  const brush = new OrbitingBrush();
+  brush.shape = shape;
   brush.setEnabled(false);
 
   addSceneObject(shape);

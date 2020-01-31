@@ -1,5 +1,5 @@
 import { Size } from "../canvas";
-import { SceneObjectType } from "./scene-object";
+import { SceneObject } from "./scene-object";
 
 export * from "./point";
 
@@ -19,7 +19,7 @@ export type SceneType = {
 };
 
 export type SceneControllerProps = {
-  addSceneObject: (object: SceneObjectType) => void;
+  addSceneObject: (object: SceneObject) => void;
 };
 
 export type SceneControllerType = {
@@ -35,7 +35,7 @@ export type SceneControllerStrategy = (
 export const Scene: (
   Controller: SceneControllerStrategy
 ) => SceneType = Controller => {
-  const objects: SceneObjectType[] = [];
+  const objects: SceneObject[] = [];
 
   const { update, animationStepCount, onInteraction } = Controller({
     addSceneObject(object) {

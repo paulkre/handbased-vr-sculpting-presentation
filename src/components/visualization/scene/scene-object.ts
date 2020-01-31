@@ -1,49 +1,31 @@
-import { Transform, TransformType } from "./transform";
-
 import { UpdateProps, RenderProps } from ".";
-import { PointType } from "./point";
+import { Point } from "./point";
 
-type PointFilter = (point: PointType) => PointType;
+export abstract class SceneObject {
+  private enabled = true;
 
-export type SceneObjectType = {
-  transform: TransformType;
-  render: (props: RenderProps) => void;
-  setEnabled(value: boolean): void;
-};
+  position = Point(0, 0);
 
-export type SceneObjectProps = {
-  render: (props: RenderProps) => void;
-  update?: (props: UpdateProps) => void;
-};
+  render(props: RenderProps) {
+    if (!this.enabled) return;
+    this.update(props);
 
-export const SceneObject: (props: SceneObjectProps) => SceneObjectType = ({
-  update,
-  render
-}) => {
-  let enabled = true;
-  const transform = Transform();
+    const { ctx } = props;
 
-  return {
-    transform,
+    ctx.save();
 
-    render(props) {
-      if (!enabled) return;
-      if (update) update(props);
+    const { x, y } = this.position;
+    ctx.translate(x, y);
 
-      const { ctx } = props;
+    this.draw(props);
 
-      ctx.save();
+    ctx.restore();
+  }
 
-      const { x, y } = transform.position();
-      ctx.translate(x, y);
+  setEnabled(value: boolean) {
+    this.enabled = value;
+  }
 
-      render(props);
-
-      ctx.restore();
-    },
-
-    setEnabled(value) {
-      enabled = value;
-    }
-  };
-};
+  protected abstract update(props: UpdateProps): void;
+  protected abstract draw(props: RenderProps): void;
+}
