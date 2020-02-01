@@ -35,11 +35,11 @@ export class OrbitingBrush extends Brush {
   }
 
   setEnabled(value: boolean) {
-    super.setEnabled(value);
-    this.orbitRadius = startOrbitRadius;
-    if (value) {
+    if (!this.enabled && value) {
       this.pastTime = 0;
       this.fixedOrbitRadius = startOrbitRadius;
+      this.orbitRadius = startOrbitRadius;
     }
+    super.setEnabled(value);
   }
 }

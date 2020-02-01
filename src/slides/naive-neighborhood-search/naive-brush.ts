@@ -10,7 +10,14 @@ export class NaiveBrush extends OrbitingBrush {
 
     for (let i = 0; i < points.length; i++) {
       const p = points[i].sub(this.position).add(position);
-      ctx.strokeStyle = p.magSq() < this.radiusSq ? "#0f0" : "#f00";
+      const magSq = p.magSq();
+      ctx.strokeStyle =
+        magSq < this.radiusSq
+          ? `hsl(${120 +
+              80 *
+                (1 -
+                  Math.pow(Math.sqrt(magSq) / this.radius, 2))}deg, 100%, 50%)`
+          : "#f00";
       ctx.beginPath();
       ctx.moveTo(0, 0);
       ctx.lineTo(p.x, p.y);

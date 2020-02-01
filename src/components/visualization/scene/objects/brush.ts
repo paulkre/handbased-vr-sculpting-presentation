@@ -8,7 +8,7 @@ export class Brush extends SceneObject {
   protected radius: number;
   protected radiusSq: number;
 
-  shape: Shape | null = null;
+  protected shape: Shape | null = null;
 
   constructor() {
     super();
@@ -16,8 +16,24 @@ export class Brush extends SceneObject {
     this.radiusSq = this.radius * this.radius;
   }
 
-  protected update({ time }: UpdateProps) {
-    this.updateShape();
+  protected update(_props: UpdateProps) {
+    if (!this.shape) return;
+
+    const { points, normals, position } = this.shape;
+
+    for (let i = 0; i < points.length; i++) {
+      const p = points[i];
+      const distSq = this.position.distSq(p.add(position));
+      if (distSq < this.radiusSq) {
+        const t = Math.sqrt(distSq) / this.radius;
+        const amt = t * t * (3 - 2 * t);
+        const strength = 1 - amt * amt;
+
+        points[i] = p.add(normals[i].mult(0.0012 * strength));
+      }
+    }
+
+    this.shape.updateNormals();
   }
 
   protected draw({ ctx }: RenderProps) {
@@ -36,23 +52,7 @@ export class Brush extends SceneObject {
     ctx.stroke();
   }
 
-  private updateShape() {
-    if (!this.shape) return;
-
-    const { points, normals, position } = this.shape;
-
-    for (let i = 0; i < points.length; i++) {
-      const p = points[i];
-      const distSq = this.position.distSq(p.add(position));
-      if (distSq < this.radiusSq) {
-        const t = Math.sqrt(distSq) / this.radius;
-        const amt = t * t * (3 - 2 * t);
-        const strength = 1 - amt * amt;
-
-        points[i] = p.add(normals[i].mult(0.0012 * strength));
-      }
-    }
-
-    this.shape.updateNormals();
+  setShape(shape: Shape) {
+    this.shape = shape;
   }
 }

@@ -7,6 +7,7 @@ import { Motivation } from "../slides/motivation";
 import { RelatedWork } from "../slides/related-work";
 import { SculptingConcept } from "../slides/sculpting-concept";
 import { NaiveNeighborhoodSearch } from "../slides/naive-neighborhood-search";
+import { NewNeighborhoodSearch } from "../slides/new-neighborhood-search";
 import { SliderVideo } from "../slides/slider-video";
 
 import styles from "./app.module.scss";
@@ -20,6 +21,7 @@ export const App: React.FC = () => (
         <RelatedWork />
         <SculptingConcept />
         <NaiveNeighborhoodSearch />
+        <NewNeighborhoodSearch />
         <SliderVideo />
       </Presentation>
     </div>

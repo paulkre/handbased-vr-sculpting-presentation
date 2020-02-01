@@ -2,7 +2,7 @@ import { UpdateProps, RenderProps } from ".";
 import { Point } from "./point";
 
 export abstract class SceneObject {
-  private enabled = true;
+  protected enabled = true;
 
   position = Point(0, 0);
 

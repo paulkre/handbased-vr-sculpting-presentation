@@ -7,7 +7,7 @@ import { NaiveNeighborhoodSearchVisualization } from "./naive-neighborhood-searc
 
 export const NaiveNeighborhoodSearch: React.FC = () => (
   <Frame>
-    <Chapter title="Nachbarschaftssuche">
+    <Chapter title="Naive Nachbarschaftssuche">
       <Visualization SceneController={NaiveNeighborhoodSearchVisualization} />
     </Chapter>
   </Frame>

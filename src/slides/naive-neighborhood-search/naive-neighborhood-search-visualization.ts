@@ -9,7 +9,7 @@ export const NaiveNeighborhoodSearchVisualization: SceneControllerStrategy = ({
   const shape = new CircleShape(0.33);
 
   const brush = new NaiveBrush();
-  brush.shape = shape;
+  brush.setShape(shape);
 
   addSceneObject(shape);
   addSceneObject(brush);

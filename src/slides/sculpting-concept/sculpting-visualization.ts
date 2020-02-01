@@ -9,7 +9,7 @@ export const SculptingVisualization: SceneControllerStrategy = ({
   const shape = new CircleShape(0.33);
 
   const brush = new OrbitingBrush();
-  brush.shape = shape;
+  brush.setShape(shape);
   brush.setEnabled(false);
 
   addSceneObject(shape);
