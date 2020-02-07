@@ -1,0 +1,20 @@
+@import "../../variables.scss";
+
+.wrapper {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    border: 1px solid $text-color-muted;
+    padding: 1vw;
+  }
+
+  th {
+    background: rgba($text-color-muted, 0.25);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 4vh;
+  }
+}
