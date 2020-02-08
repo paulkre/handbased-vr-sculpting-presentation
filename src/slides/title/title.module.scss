@@ -24,24 +24,9 @@
   margin-bottom: 2vh;
 }
 
-@keyframes hue-rotation {
-  from {
-    filter: hue-rotate(0);
-  }
-  to {
-    filter: hue-rotate(360deg);
-  }
-}
-
 .heading {
   font-size: $font-size-xxl;
   font-weight: 700;
-
-  color: orange;
-  background-clip: text;
-  animation: hue-rotation 10s linear 0ms infinite;
-
-  text-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.5);
 }
 
 .logos {

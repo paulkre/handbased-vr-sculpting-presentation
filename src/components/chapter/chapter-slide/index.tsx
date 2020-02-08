@@ -9,7 +9,7 @@ type ChapterSlideProps = {
   title: string;
   chapterTitle?: string;
   wrapElement?: React.ReactElement;
-  withSeparator?: boolean;
+  largeTitle?: boolean;
 };
 
 export const ChapterSlide: React.FC<ChapterSlideProps> = ({
@@ -17,7 +17,7 @@ export const ChapterSlide: React.FC<ChapterSlideProps> = ({
   title,
   chapterTitle,
   wrapElement,
-  withSeparator
+  largeTitle
 }) => {
   const tree = (
     <Frame>
@@ -25,12 +25,13 @@ export const ChapterSlide: React.FC<ChapterSlideProps> = ({
         {chapterTitle && (
           <div className={styles.heading}>
             <div className={styles.chapterTitle}>{chapterTitle}</div>
-            <div>{title}</div>
+            <div className={largeTitle ? styles.largeTitle : undefined}>
+              {title}
+            </div>
           </div>
         )}
-        <div>
-          {withSeparator && <div className={styles.separator} />}
-          {children}
+        <div className={styles.outerContentWrapper}>
+          <div className={styles.innerContentWrapper}>{children}</div>
         </div>
       </div>
     </Frame>

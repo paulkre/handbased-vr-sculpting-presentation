@@ -9,6 +9,8 @@
 
   display: grid;
   grid-template-rows: min-content 1fr;
+
+  overflow: hidden;
 }
 
 .heading {
@@ -20,7 +22,21 @@
   color: $text-color-muted;
 }
 
-.separator {
-  border-top: 0.15vw solid $text-color-muted;
-  padding-bottom: 4vh;
+.outerContentWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.innerContentWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.largeTitle {
+  font-size: $font-size-xl;
+  padding-bottom: 2vh;
 }
