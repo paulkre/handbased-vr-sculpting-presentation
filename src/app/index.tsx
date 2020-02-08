@@ -6,10 +6,7 @@ import { Title } from "../slides/title";
 import { Motivation } from "../slides/motivation";
 import { Plan } from "../slides/plan";
 import { SculptingOptimizationChapter } from "../slides/sculpting-optimization-chapter";
-import { SliderDemo } from "../slides/slider-demo";
-import { SphereSelectorDemo } from "../slides/sphere-selector-demo";
-import { ToolMenuDemo } from "../slides/tool-menu-demo";
-import { HandbasedSculptingDemo } from "../slides/handbased-sculpting-demo";
+import { HandbasedConceptChapter } from "../slides/handbased-concept-chapter";
 
 import styles from "./app.module.scss";
 
@@ -21,10 +18,7 @@ export const App: React.FC = () => (
         <Motivation />
         <Plan />
         <SculptingOptimizationChapter />
-        <SliderDemo />
-        <SphereSelectorDemo />
-        <ToolMenuDemo />
-        <HandbasedSculptingDemo />
+        <HandbasedConceptChapter />
       </Presentation>
     </div>
   </Div100vh>

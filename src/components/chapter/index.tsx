@@ -1,9 +1,7 @@
 import React from "react";
 
-import { ChapterControllerProvider } from "./chapter-controller-provider";
 import { InteractiveSwitch } from "../interactive-switch";
 import { ChapterTitle } from "./chapter-title";
-import { ChapterFrame } from "./chapter-frame";
 
 export { ChapterSlide } from "./chapter-slide";
 
@@ -18,19 +16,14 @@ export const Chapter: React.FC<ChapterProps> = ({
   title,
   count,
   initialStep
-}) => {
-  const [slideTitle, setSlideTitle] = React.useState("");
-
-  return (
-    <InteractiveSwitch initialStep={initialStep !== undefined ? 1 : undefined}>
-      <ChapterTitle count={count}>{title}</ChapterTitle>
-      <ChapterFrame title={title} slideTitle={slideTitle} count={count}>
-        <ChapterControllerProvider setSlideTitle={setSlideTitle}>
-          <InteractiveSwitch initialStep={initialStep && initialStep}>
-            {children}
-          </InteractiveSwitch>
-        </ChapterControllerProvider>
-      </ChapterFrame>
-    </InteractiveSwitch>
-  );
-};
+}) => (
+  <InteractiveSwitch initialStep={initialStep}>
+    <ChapterTitle count={count}>{title}</ChapterTitle>
+    {React.Children.map(
+      children,
+      child =>
+        React.isValidElement(child) &&
+        React.cloneElement(child, { chapterTitle: title })
+    )}
+  </InteractiveSwitch>
+);

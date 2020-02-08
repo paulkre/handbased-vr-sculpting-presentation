@@ -14,12 +14,10 @@ export const ChapterTitle: React.FC<ChapterTitleProps> = ({
   <Frame>
     <FlyIn>
       <div className={styles.wrapper}>
-        <div>
-          {count !== undefined && (
-            <div className={styles.label}>Kapitel {count}</div>
-          )}
-          {children}
-        </div>
+        {count !== undefined && (
+          <div className={styles.label}>Kapitel {count}</div>
+        )}
+        <div>{children}</div>
       </div>
     </FlyIn>
   </Frame>

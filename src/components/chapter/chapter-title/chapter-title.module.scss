@@ -5,20 +5,27 @@
   height: 100%;
 
   display: flex;
+  flex-flow: column;
   justify-content: center;
-  align-items: center;
 
   font-size: $font-size-xxl;
   font-weight: 700;
+  text-align: center;
+
+  &:after {
+    content: " ";
+    display: block;
+    background: $text-color-muted;
+    width: 8vw;
+    height: 0.5vh;
+    margin: 5.5vh auto 0;
+  }
 }
 
 .label {
   width: 100%;
-  // border-bottom: 0.25vw solid $text-color-muted;
-  text-align: center;
-  // margin-bottom: 1vh;
-  // padding-bottom: 1vh;
   font-weight: 400;
   color: $text-color-muted;
   font-size: $font-size-xl;
+  padding-bottom: 2vh;
 }

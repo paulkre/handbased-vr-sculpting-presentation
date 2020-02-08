@@ -17,7 +17,7 @@ export const SculptingOptimizationChapter: React.FC = () => (
     <Slide title="Nachbarschaftssuche in Grid Datenstruktur">
       <GridNeighborhoodSearch />
     </Slide>
-    <Slide title="Vergleich der Algorithmen" withSeparator>
+    <Slide title="Vergleich der Algorithmen">
       <NeighborhoodSearchComparison />
     </Slide>
   </Chapter>
