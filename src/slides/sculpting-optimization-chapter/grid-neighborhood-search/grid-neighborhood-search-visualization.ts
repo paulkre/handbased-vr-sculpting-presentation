@@ -1,13 +1,13 @@
 import {
   SceneControllerStrategy,
   Point
-} from "../../components/visualization/scene";
+} from "../../../components/visualization/scene";
 
-import { CircleShape } from "../../components/visualization/scene/objects/circle-shape";
+import { CircleShape } from "../../../components/visualization/scene/objects/circle-shape";
 import { SmartBrush } from "./smart-brush";
 import { Grid } from "./grid";
 
-export const NewNeighborhoodSearchVisualization: SceneControllerStrategy = ({
+export const GridNeighborhoodSearchVisualization: SceneControllerStrategy = ({
   addSceneObject
 }) => {
   const shape = new CircleShape(0.33);

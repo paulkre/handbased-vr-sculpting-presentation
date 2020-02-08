@@ -1,9 +1,9 @@
-import { SceneObject } from "../../components/visualization/scene/scene-object";
+import { SceneObject } from "../../../components/visualization/scene/scene-object";
 import {
   Point,
   PointType,
   RenderProps
-} from "../../components/visualization/scene";
+} from "../../../components/visualization/scene";
 
 type Size = {
   width: number;

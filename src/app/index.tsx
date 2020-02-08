@@ -5,12 +5,7 @@ import { Presentation } from "../components/presentation";
 import { Title } from "../slides/title";
 import { Motivation } from "../slides/motivation";
 import { Plan } from "../slides/plan";
-import { SculptingDevelopmentTitle } from "../slides/sculpting-development-title";
-import { SculptingConcept } from "../slides/sculpting-concept";
-import { NaiveNeighborhoodSearch } from "../slides/naive-neighborhood-search";
-import { NewNeighborhoodSearch } from "../slides/new-neighborhood-search";
-import { NeighborhoodSearchComparison } from "../slides/neighborhood-search-comparison";
-import { HandbasedConceptTitle } from "../slides/handbased-concept-title";
+import { SculptingOptimizationChapter } from "../slides/sculpting-optimization-chapter";
 import { SliderDemo } from "../slides/slider-demo";
 import { SphereSelectorDemo } from "../slides/sphere-selector-demo";
 import { ToolMenuDemo } from "../slides/tool-menu-demo";
@@ -25,12 +20,7 @@ export const App: React.FC = () => (
         <Title />
         <Motivation />
         <Plan />
-        <SculptingDevelopmentTitle />
-        <SculptingConcept />
-        <NaiveNeighborhoodSearch />
-        <NewNeighborhoodSearch />
-        <NeighborhoodSearchComparison />
-        <HandbasedConceptTitle />
+        <SculptingOptimizationChapter />
         <SliderDemo />
         <SphereSelectorDemo />
         <ToolMenuDemo />

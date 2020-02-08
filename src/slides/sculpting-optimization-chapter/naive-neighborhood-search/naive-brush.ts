@@ -1,5 +1,5 @@
-import { OrbitingBrush } from "../../components/visualization/scene/objects/orbiting-brush";
-import { RenderProps } from "../../components/visualization/scene";
+import { OrbitingBrush } from "../../../components/visualization/scene/objects/orbiting-brush";
+import { RenderProps } from "../../../components/visualization/scene";
 
 export class NaiveBrush extends OrbitingBrush {
   protected draw(props: RenderProps) {

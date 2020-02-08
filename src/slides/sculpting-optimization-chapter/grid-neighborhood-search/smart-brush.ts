@@ -1,6 +1,9 @@
-import { OrbitingBrush } from "../../components/visualization/scene/objects/orbiting-brush";
-import { RenderProps, UpdateProps } from "../../components/visualization/scene";
-import { Shape } from "../../components/visualization/scene/shape";
+import { OrbitingBrush } from "../../../components/visualization/scene/objects/orbiting-brush";
+import {
+  RenderProps,
+  UpdateProps
+} from "../../../components/visualization/scene";
+import { Shape } from "../../../components/visualization/scene/shape";
 
 import { Grid } from "./grid";
 

@@ -1,6 +1,6 @@
-import { SceneControllerStrategy } from "../../components/visualization/scene";
+import { SceneControllerStrategy } from "../../../components/visualization/scene";
 
-import { CircleShape } from "../../components/visualization/scene/objects/circle-shape";
+import { CircleShape } from "../../../components/visualization/scene/objects/circle-shape";
 import { NaiveBrush } from "./naive-brush";
 
 export const NaiveNeighborhoodSearchVisualization: SceneControllerStrategy = ({

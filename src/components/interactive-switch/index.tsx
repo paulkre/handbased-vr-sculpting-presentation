@@ -2,8 +2,15 @@ import React, { useState } from "react";
 
 import { InteractionStepSwitch } from "../presentation/interaction-step-switch";
 
-export const InteractiveSwitch: React.FC = ({ children }) => {
-  const [step, setStep] = useState(0);
+type InteractiveSwitchProps = {
+  initialStep?: number;
+};
+
+export const InteractiveSwitch: React.FC<InteractiveSwitchProps> = ({
+  children,
+  initialStep
+}) => {
+  const [step, setStep] = useState(initialStep || 0);
   const childCount = React.Children.count(children);
 
   return (
