@@ -34,6 +34,7 @@ export class Grid extends SceneObject {
   private pointerRadius = 0;
 
   visible = true;
+  linesVisible = true;
 
   fill(points: PointType[]) {
     this.points = points;
@@ -101,23 +102,25 @@ export class Grid extends SceneObject {
   protected draw({ ctx }: RenderProps) {
     if (!this.visible) return;
 
-    const strokeLength: Size = {
-      width: 4 * size.width,
-      height: 4 * size.height
-    };
-    ctx.strokeStyle = "#000";
-    ctx.beginPath();
-    for (let y = 0; y <= subdivisionCount.height; y++) {
-      const val = y * cellSize.height - size.height / 2;
-      ctx.moveTo(-strokeLength.height, val);
-      ctx.lineTo(strokeLength.height, val);
+    if (this.linesVisible) {
+      const strokeLength: Size = {
+        width: 4 * size.width,
+        height: 4 * size.height
+      };
+      ctx.strokeStyle = "#000";
+      ctx.beginPath();
+      for (let y = 0; y <= subdivisionCount.height; y++) {
+        const val = y * cellSize.height - size.height / 2;
+        ctx.moveTo(-strokeLength.height, val);
+        ctx.lineTo(strokeLength.height, val);
+      }
+      for (let x = 0; x <= subdivisionCount.width; x++) {
+        const val = x * cellSize.width - size.width / 2;
+        ctx.moveTo(val, -strokeLength.width);
+        ctx.lineTo(val, strokeLength.width);
+      }
+      ctx.stroke();
     }
-    for (let x = 0; x <= subdivisionCount.width; x++) {
-      const val = x * cellSize.width - size.width / 2;
-      ctx.moveTo(val, -strokeLength.width);
-      ctx.lineTo(val, strokeLength.width);
-    }
-    ctx.stroke();
 
     if (this.pointerPosition) {
       const pid0 = this.pointToIndex(

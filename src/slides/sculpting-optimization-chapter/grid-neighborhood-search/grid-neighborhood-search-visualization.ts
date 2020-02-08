@@ -27,10 +27,10 @@ export const GridNeighborhoodSearchVisualization: SceneControllerStrategy = ({
   return {
     onInteraction(step) {
       brush.setEnabled(step > 0);
-      brush.showSearch = step > 1;
-      grid.visible = step < 2;
+      brush.showSearch = step > 0;
+      grid.linesVisible = step === 0;
     },
 
-    animationStepCount: 3
+    animationStepCount: 2
   };
 };

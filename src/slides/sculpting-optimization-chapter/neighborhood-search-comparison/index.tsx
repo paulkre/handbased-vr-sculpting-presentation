@@ -6,7 +6,7 @@ import { FadeIn } from "../../../components/animation/fade-in";
 
 export const NeighborhoodSearchComparison: React.FC = () => {
   return (
-    <div style={{ paddingTop: "1vh" }}>
+    <div style={{ paddingTop: "1.5vh" }}>
       <InteractiveList>
         <Table>
           <thead>
