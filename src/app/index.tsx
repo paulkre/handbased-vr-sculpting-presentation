@@ -7,6 +7,7 @@ import { Motivation } from "../slides/motivation";
 import { Plan } from "../slides/plan";
 import { SculptingOptimizationChapter } from "../slides/sculpting-optimization-chapter";
 import { HandbasedConceptChapter } from "../slides/handbased-concept-chapter";
+import { UsabilityTestChapter } from "../slides/usability-test-chapter";
 
 import styles from "./app.module.scss";
 
@@ -19,6 +20,7 @@ export const App: React.FC = () => (
         <Plan />
         <SculptingOptimizationChapter />
         <HandbasedConceptChapter />
+        <UsabilityTestChapter />
       </Presentation>
     </div>
   </Div100vh>

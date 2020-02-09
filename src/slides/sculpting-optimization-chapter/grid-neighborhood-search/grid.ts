@@ -136,7 +136,7 @@ export class Grid extends SceneObject {
         )
       );
 
-      ctx.fillStyle = "rgba(0,0,0,.15)";
+      ctx.strokeStyle = "rgba(0,0,0,.8)";
       ctx.beginPath();
       const from = Point(
         pid0.x * cellSize.width - size.width / 2,
@@ -147,7 +147,7 @@ export class Grid extends SceneObject {
         (pid1.y + 1) * cellSize.height - size.height / 2
       );
       ctx.rect(from.x, from.y, to.x - from.x, to.y - from.y);
-      ctx.fill();
+      ctx.stroke();
     }
   }
 }

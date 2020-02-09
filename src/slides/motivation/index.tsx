@@ -2,7 +2,6 @@ import React from "react";
 
 import { SlideFrame } from "../../components/slide-frame";
 import { TextList as List, Item as Li } from "../../components/text-list";
-import { InteractiveList } from "../../components/interactive-list";
 import { InteractiveSwitch } from "../../components/interactive-switch";
 import { fadeInClassName } from "../../components/animation/fade-in";
 import { ImgGallery } from "../../components/img-gallery";
@@ -14,7 +13,7 @@ export const Motivation: React.FC = () => (
   <SlideFrame title="Motivation">
     <List>
       <InteractiveSwitch>
-        <InteractiveList>
+        <>
           <Li>
             Virtual Reality wird zum großen Teil für{" "}
             <strong>Unterhaltung</strong> genutzt
@@ -31,8 +30,8 @@ export const Motivation: React.FC = () => (
               <Li>Texteingabe ist aufwändig</Li>
             </List>
           </Li>
-        </InteractiveList>
-        <InteractiveList>
+        </>
+        <>
           <Li>
             Womöglich gibt es noch effektivere Interaktionskonzepte für die
             Bedienung von leistungsorientierten Anwendungen in virtuellen
@@ -53,8 +52,8 @@ export const Motivation: React.FC = () => (
               </Li>
             </List>
           </Li>
-        </InteractiveList>
-        <InteractiveList>
+        </>
+        <>
           <Li>
             Viele leistungsorientierte Anwendungen funktionieren besser in
             desktopbasierten Umgebungen
@@ -82,7 +81,7 @@ export const Motivation: React.FC = () => (
               }
             ]}
           />
-        </InteractiveList>
+        </>
       </InteractiveSwitch>
     </List>
   </SlideFrame>
