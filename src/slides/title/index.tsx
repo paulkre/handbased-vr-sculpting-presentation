@@ -1,14 +1,10 @@
 import React from "react";
 
-import { preloader } from "../../util/preloader";
-
 import { Frame } from "../../components/frame";
 import { RainbowText } from "../../components/rainbow-text";
 
 import styles from "./title.module.scss";
 import logosUrl from "./hsd-logos.svg";
-
-preloader.addImage(logosUrl);
 
 export const Title: React.FC = () => (
   <Frame>

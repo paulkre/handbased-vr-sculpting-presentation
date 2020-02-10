@@ -50,8 +50,18 @@ export const UsabilityTestChapter: React.FC = () => (
     <Slide title="Ergebnisse" largeTitle wrapElement={<FlyIn />}>
       <Results />
     </Slide>
-    <Slide title="Auswertung">
+    <Slide title="Auswertung" largeTitle>
       <Evaluation />
+    </Slide>
+    <Slide title="Fazit" largeTitle>
+      <List>
+        <Li>Handbasiertes Sculpting funktioniert!</Li>
+        <Li>
+          Trotz technischen Schwierigkeiten während des Tests wurde die
+          Nutzungsqualität des handbasierten Interaktionskonzepts gut bewertet
+        </Li>
+        <Li>Weiterverfolgung der Technologie ist sinnvoll</Li>
+      </List>
     </Slide>
   </Chapter>
 );
