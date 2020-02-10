@@ -1,0 +1,22 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+
+  display: -ms-grid;
+  -ms-grid-columns: 2fr 3fr 2fr;
+
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr;
+
+  grid-gap: 1vw;
+
+  background: white;
+  padding: 1vw;
+}
+
+.figure {
+  width: 100%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
