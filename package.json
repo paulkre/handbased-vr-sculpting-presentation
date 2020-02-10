@@ -14,6 +14,7 @@
     "@types/react-dom": "^16.9.5",
     "@use-it/event-listener": "^0.1.3",
     "classnames": "^2.2.6",
+    "gh-pages": "^2.2.0",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-div-100vh": "^0.3.8",
@@ -26,7 +27,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,5 +45,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "https://paulkre.github.io/handbased-vr-sculpting-presentation"
 }
