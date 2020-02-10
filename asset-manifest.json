@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/handbased-vr-sculpting-presentation/static/css/main.9ae67dd8.chunk.css",
+    "main.js": "/handbased-vr-sculpting-presentation/static/js/main.00a48b65.chunk.js",
+    "main.js.map": "/handbased-vr-sculpting-presentation/static/js/main.00a48b65.chunk.js.map",
+    "runtime-main.js": "/handbased-vr-sculpting-presentation/static/js/runtime-main.5824b316.js",
+    "runtime-main.js.map": "/handbased-vr-sculpting-presentation/static/js/runtime-main.5824b316.js.map",
+    "static/js/2.030bceb2.chunk.js": "/handbased-vr-sculpting-presentation/static/js/2.030bceb2.chunk.js",
+    "static/js/2.030bceb2.chunk.js.map": "/handbased-vr-sculpting-presentation/static/js/2.030bceb2.chunk.js.map",
+    "index.html": "/handbased-vr-sculpting-presentation/index.html",
+    "precache-manifest.6e9abc66345e932ed3fe5aba54fdfd7c.js": "/handbased-vr-sculpting-presentation/precache-manifest.6e9abc66345e932ed3fe5aba54fdfd7c.js",
+    "service-worker.js": "/handbased-vr-sculpting-presentation/service-worker.js",
+    "static/css/main.9ae67dd8.chunk.css.map": "/handbased-vr-sculpting-presentation/static/css/main.9ae67dd8.chunk.css.map",
+    "static/js/2.030bceb2.chunk.js.LICENSE": "/handbased-vr-sculpting-presentation/static/js/2.030bceb2.chunk.js.LICENSE",
+    "static/media/c01.jpg": "/handbased-vr-sculpting-presentation/static/media/c01.e3ff6286.jpg",
+    "static/media/c02.jpg": "/handbased-vr-sculpting-presentation/static/media/c02.cc54a476.jpg",
+    "static/media/c03.jpg": "/handbased-vr-sculpting-presentation/static/media/c03.42a6ee1b.jpg",
+    "static/media/c04.jpg": "/handbased-vr-sculpting-presentation/static/media/c04.112feca8.jpg",
+    "static/media/finger-slider-demo.mp4": "/handbased-vr-sculpting-presentation/static/media/finger-slider-demo.f5dfa914.mp4",
+    "static/media/finger-slider.svg": "/handbased-vr-sculpting-presentation/static/media/finger-slider.1b233177.svg",
+    "static/media/h01.jpg": "/handbased-vr-sculpting-presentation/static/media/h01.335beb9b.jpg",
+    "static/media/h02.jpg": "/handbased-vr-sculpting-presentation/static/media/h02.fa04ce1d.jpg",
+    "static/media/h03.jpg": "/handbased-vr-sculpting-presentation/static/media/h03.5fe0c591.jpg",
+    "static/media/h04.jpg": "/handbased-vr-sculpting-presentation/static/media/h04.7f6aa404.jpg",
+    "static/media/hsd-logos.svg": "/handbased-vr-sculpting-presentation/static/media/hsd-logos.ce8c7145.svg",
+    "static/media/medians.svg": "/handbased-vr-sculpting-presentation/static/media/medians.c3d2d257.svg",
+    "static/media/medium.jpg": "/handbased-vr-sculpting-presentation/static/media/medium.27aebe70.jpg",
+    "static/media/msmr-slider.jpg": "/handbased-vr-sculpting-presentation/static/media/msmr-slider.7f80c0f1.jpg",
+    "static/media/portfolio.svg": "/handbased-vr-sculpting-presentation/static/media/portfolio.90789171.svg",
+    "static/media/sculpting-demo.mp4": "/handbased-vr-sculpting-presentation/static/media/sculpting-demo.464b0b46.mp4",
+    "static/media/sphere-selector-demo.mp4": "/handbased-vr-sculpting-presentation/static/media/sphere-selector-demo.a0fd0ce8.mp4",
+    "static/media/sphere-selector.svg": "/handbased-vr-sculpting-presentation/static/media/sphere-selector.a3d0a6b7.svg",
+    "static/media/tiltbrush.jpg": "/handbased-vr-sculpting-presentation/static/media/tiltbrush.bee11016.jpg",
+    "static/media/tool-menu-demo.mp4": "/handbased-vr-sculpting-presentation/static/media/tool-menu-demo.a76316bc.mp4",
+    "static/media/wordpairs.svg": "/handbased-vr-sculpting-presentation/static/media/wordpairs.04fcf513.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5824b316.js",
+    "static/js/2.030bceb2.chunk.js",
+    "static/css/main.9ae67dd8.chunk.css",
+    "static/js/main.00a48b65.chunk.js"
+  ]
+}
